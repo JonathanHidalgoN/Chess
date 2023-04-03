@@ -58,6 +58,15 @@ void draw_piece(sf::RenderWindow & window, const Piece & piece) {
     {}
 }
 
+int Board::get_number_of_pieces() const {
+    /*
+    This method returns the number of pieces
+    Returns:
+        int: The number of pieces
+    */
+    return m_number_of_pieces;
+}
+
 std::pair<int,int> Board::get_board_dims() const {
     /*
     This method returns the dimensions of the board
@@ -88,7 +97,7 @@ std::pair<int,int> Board::get_board_position() const {
 std::pair<int,int> Board::square_to_coords(std::pair<int,int> square_numbers)
 {
     /*
-    This function converts the square numbers to coordinates
+    This method converts the square numbers to coordinates
     Arguments:
         square_numbers: The square numbers
     Returns:
@@ -101,7 +110,7 @@ std::pair<int,int> Board::square_to_coords(std::pair<int,int> square_numbers)
 
 std::pair<int,int> Board::assing_square_dims(){
     /*
-    This function assigns the dimensions of the squares
+    This method assigns the dimensions of the squares
     Returns:
         std::pair<int,int>: The dimensions of the squares
     */
