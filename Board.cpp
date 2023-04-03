@@ -272,3 +272,15 @@ void Board::set_up(){
     set_up_knights();
 }
 
+void Board::draw_pieces(sf::RenderWindow& window)
+{
+    /*
+    This method draws the pieces on the board
+    Arguments:
+        window: The window to draw on
+    */
+    for(int i{0}; i<m_number_of_pieces; ++i)
+    {
+        draw_piece(window, m_pieces[i]);        
+    }
+}
