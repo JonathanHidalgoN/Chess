@@ -49,9 +49,11 @@ void Board::draw_piece(sf::RenderWindow & window, const Piece & piece) {
     }
     //Check if the piece is alive
     if(piece.get_is_alive()){
+        //Convert from the square number to the coordinates
+        std::pair<int,int> piece_coords = square_to_coords(std::make_pair(piece.get_position().first, piece.get_position().second)); 
         sf::Sprite piece_sprite;
         piece_sprite.setTexture(piece_texture);
-        piece_sprite.setPosition(piece.get_position().first, piece.get_position().second);
+        piece_sprite.setPosition(piece_coords.first, piece_coords.second);
         window.draw(piece_sprite);
     }
     else 
