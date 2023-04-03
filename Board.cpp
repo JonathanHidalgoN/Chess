@@ -145,10 +145,130 @@ void Board::set_up_pawns()
 
 }
 
+void Board::set_up_rooks()
+{
+    /*
+    This method sets up the rooks for first turn
+    */
+    m_pieces[16] = Piece(
+        std::make_pair(0, 0),
+        "rook 1", 
+        "white", 
+        true);
+    m_pieces[17] = Piece(
+        std::make_pair(7, 0),
+        "rook 2", 
+        "white", 
+        true);
+    m_pieces[18] = Piece(
+        std::make_pair(0, 7),
+        "rook 1", 
+        "black", 
+        true);
+    m_pieces[19] = Piece(
+        std::make_pair(7, 7),
+        "rook 2", 
+        "black", 
+        true);    
+}
+
+void Board::set_up_bishops()
+{
+    /*
+    This method sets up the bishops for first turn
+    */
+    m_pieces[20] = Piece(
+        std::make_pair(2, 0),
+        "bishop 1", 
+        "white", 
+        true);
+    m_pieces[21] = Piece(
+        std::make_pair(5, 0),
+        "bishop 2", 
+        "white", 
+        true);
+    m_pieces[22] = Piece(
+        std::make_pair(2, 7),
+        "bishop 1", 
+        "black", 
+        true);
+    m_pieces[23] = Piece(
+        std::make_pair(5, 7),
+        "bishop 2", 
+        "black", 
+        true);    
+}
+
+void Board::set_up_king()
+{
+    /*
+    This method sets up the kings for first turn
+    */
+    m_pieces[24] = Piece(
+        std::make_pair(4, 0),
+        "king", 
+        "white", 
+        true);
+    m_pieces[25] = Piece(
+        std::make_pair(4, 7),
+        "king", 
+        "black", 
+        true);    
+}
+
+void Board::set_up_queen()
+{
+    /*
+    This method sets up the queens for first turn
+    */
+    m_pieces[26] = Piece(
+        std::make_pair(3, 0),
+        "queen", 
+        "white", 
+        true);
+    m_pieces[27] = Piece(
+        std::make_pair(3, 7),
+        "queen", 
+        "black", 
+        true);    
+}
+
+void Board::set_up_knights()
+{
+    /*
+    This method sets up the knights for first turn
+    */
+    m_pieces[28] = Piece(
+        std::make_pair(1, 0),
+        "knight 1", 
+        "white", 
+        true);
+    m_pieces[29] = Piece(
+        std::make_pair(6, 0),
+        "knight 2", 
+        "white", 
+        true);
+    m_pieces[30] = Piece(
+        std::make_pair(1, 7),
+        "knight 1", 
+        "black", 
+        true);
+    m_pieces[31] = Piece(
+        std::make_pair(6, 7),
+        "knight 2", 
+        "black", 
+        true);    
+}
+
 void Board::set_up(){
     /*
     This method sets up the board for the first turn
     */
     set_up_pawns();
+    set_up_rooks();
+    set_up_bishops();
+    set_up_king();
+    set_up_queen();
+    set_up_knights();
 }
 

@@ -17,7 +17,14 @@ private:
     std::pair<int,int> assing_square_dims();
     std::pair<int,int> square_to_coords(std::pair<int,int> square_numbers);    
     void set_up_pawns();
+    void set_up_rooks();
+    void set_up_knights();
+    void set_up_bishops();
+    void set_up_queen();
+    void set_up_king();
     void set_up();
+    void draw_piece(sf::RenderWindow& window, const Piece& piece);
+    void draw_pieces(sf::RenderWindow& window);
 
 public:
     Board(
@@ -26,7 +33,6 @@ public:
         int number_of_pieces
     );
     void draw_board(sf::RenderWindow& window);
-    void draw_piece(sf::RenderWindow& window, const Piece& piece);
     std::pair<int,int> get_board_dims() const;
     std::pair<int,int> get_square_dims() const;
     std::pair<int,int> get_board_position() const;
