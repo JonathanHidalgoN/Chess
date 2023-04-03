@@ -43,9 +43,18 @@ void Board::draw_pawns(sf::RenderWindow & window) {
     }
 }
 
-int square_to_coords(std::pair<int,int> square_numbers)
+std::pair<int,int> Board::square_to_coords(std::pair<int,int> square_numbers)
 {
-
+    /*
+    This function converts the square numbers to coordinates
+    Arguments:
+        square_numbers: The square numbers
+    Returns:
+        std::pair<int,int>: The coordinates
+    */
+    int x = square_numbers.first * m_square_dims.first;
+    int y = square_numbers.second * m_square_dims.second;
+    return std::make_pair(x, y);
 }
 
 std::pair<int,int> Board::assing_square_dims(){
