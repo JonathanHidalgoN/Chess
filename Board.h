@@ -16,7 +16,9 @@ private:
     Piece * m_pieces = new Piece[m_number_of_pieces];
     std::pair<int,int> assing_square_dims();
     std::pair<int,int> square_to_coords(std::pair<int,int> square_numbers);    
-    
+    void set_up_pawns();
+    void set_up();
+
 public:
     Board(
         std::pair<int,int> board_dims,

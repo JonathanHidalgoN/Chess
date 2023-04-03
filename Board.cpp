@@ -10,6 +10,7 @@ Board::Board(
     m_square_dims = assing_square_dims();
     m_board_position = board_position;
     m_number_of_pieces = number_of_pieces;
+    set_up();
 }
 
 void Board::draw_board(sf::RenderWindow & window) {
@@ -64,7 +65,6 @@ int Board::get_number_of_pieces() const {
     Returns:
         int: The number of pieces
     */
-    return m_number_of_pieces;
 }
 
 std::pair<int,int> Board::get_board_dims() const {
@@ -119,24 +119,36 @@ std::pair<int,int> Board::assing_square_dims(){
     return std::make_pair(square_width, square_height);
 }
 
+void Board::set_up_pawns()
+{
+    /*
+    This method sets up the pawns for first turn
+    return m_number_of_pieces;
+    */
+    for(int i{0}; i<8; ++i)
+    {
+        m_pieces[i] = Piece(
+            std::make_pair(i, 1),
+            "pawn" + std::to_string(i + 1), 
+            "white", 
+            true);
+    }
+    //Name for pawns are not unique, but the color is
+    for(int i{8}; i<16; ++i)
+    {
+        m_pieces[i] = Piece(
+            std::make_pair(i - 8, 6),
+            "pawn" + std::to_string(i - 7), 
+            "black", 
+            true);
+    }
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void Board::set_up(){
+    /*
+    This method sets up the board for the first turn
+    */
+    set_up_pawns();
+}
 
