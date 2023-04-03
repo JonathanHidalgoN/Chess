@@ -16,7 +16,7 @@ private:
     Piece * m_pieces = new Piece[m_number_of_pieces];
     std::pair<int,int> assing_square_dims();
     std::pair<int,int> square_to_coords(std::pair<int,int> square_numbers);    
-
+    
 public:
     Board(
         std::pair<int,int> board_dims,
@@ -24,7 +24,7 @@ public:
         int number_of_pieces
     );
     void draw_board(sf::RenderWindow& window);
-    void draw_pieces(sf::RenderWindow& window);
+    void draw_piece(sf::RenderWindow& window, const Piece& piece);
     std::pair<int,int> get_board_dims() const;
     std::pair<int,int> get_square_dims() const;
     std::pair<int,int> get_board_position() const;

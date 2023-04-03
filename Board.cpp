@@ -35,12 +35,27 @@ void Board::draw_board(sf::RenderWindow & window) {
     }
 }
 
-
-void Board::draw_pawns(sf::RenderWindow & window) {
-    for(int i{0}; i < 8; ++i){       
-        std::string pawn_name = "pawn " + std::to_string(i);
-
+void draw_piece(sf::RenderWindow & window, const Piece & piece) {
+    /*
+    This method draws a piece
+    Arguments:
+        window: The window to draw the piece on
+        piece: The piece to draw
+    */
+    std::string file_name = piece.map_name_to_file_name();
+    sf::Texture piece_texture;
+    if(!piece_texture.loadFromFile(file_name)){
+        //std::cout << "Error loading the piece texture" << std::endl;
     }
+    //Check if the piece is alive
+    if(piece.get_is_alive()){
+        sf::Sprite piece_sprite;
+        piece_sprite.setTexture(piece_texture);
+        piece_sprite.setPosition(piece.get_position().first, piece.get_position().second);
+        window.draw(piece_sprite);
+    }
+    else 
+    {}
 }
 
 std::pair<int,int> Board::square_to_coords(std::pair<int,int> square_numbers)
@@ -67,7 +82,6 @@ std::pair<int,int> Board::assing_square_dims(){
     int square_height = static_cast<int>(m_board_dims.second / 8);
     return std::make_pair(square_width, square_height);
 }
-
 
 
 
