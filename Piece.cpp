@@ -4,13 +4,15 @@ Piece::Piece(
     std::pair<int,int> position,
     std::string name,
     std::string color,
-    bool is_alive
+    bool is_alive,
+    std::string images_path
 ) {
     //Constructor
     m_position = position;
     m_name = name;
     m_color = color;
     m_is_alive = is_alive;
+    m_images_path = images_path;
 }
 
 Piece::Piece()

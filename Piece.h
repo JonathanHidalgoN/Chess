@@ -28,7 +28,8 @@ public:
         std::pair<int,int> position,
         std::string name,
         std::string color,
-        bool is_alive
+        bool is_alive,
+        std::string images_path
     );
     Piece();
     std::pair<int,int> get_position() const;
