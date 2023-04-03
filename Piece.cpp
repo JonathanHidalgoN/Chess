@@ -6,6 +6,7 @@ Piece::Piece(
     std::string color,
     bool is_alive
 ) {
+    //Constructor
     m_position = position;
     m_name = name;
     m_color = color;
@@ -14,6 +15,7 @@ Piece::Piece(
 
 Piece::Piece()
 {
+    //Default constructor
     m_position = std::make_pair(0, 0);
     m_name = "";
     m_color = "";
