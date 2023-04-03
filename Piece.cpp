@@ -12,6 +12,14 @@ Piece::Piece(
     m_is_alive = is_alive;
 }
 
+Piece::Piece()
+{
+    m_position = std::make_pair(0, 0);
+    m_name = "";
+    m_color = "";
+    m_is_alive = false;
+}
+
 std::string Piece::map_name_to_file_name(){
     std::string piece_name = m_name.substr(0, m_name.size() - 2);
     if (m_color == "white") {

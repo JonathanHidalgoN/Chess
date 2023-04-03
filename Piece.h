@@ -1,5 +1,4 @@
 #include <string>
-
 #include <SFML/Graphics.hpp>
 
 #ifndef PIECE_H
@@ -32,6 +31,7 @@ public:
         std::string color,
         bool is_alive
     );
+    Piece();
     std::pair<int,int> get_position() const;
     std::string get_name() const;
     std::string get_color() const;
