@@ -1,27 +1,35 @@
+#include <string>
 #include <SFML/Graphics.hpp>
+#include "Piece.h"
 
 #ifndef BOARD_H
 #define BOARD_H
 
-/*
- * Board class
- * This class is responsible for drawing the chessboard
- * and the pieces on the board.
- * The board is a 8x8 grid of squares.
- */
 
 class Board {
-    private: int m_widht;
-    int m_height;
 
-    public: Board();
+private:
+    std::pair<int,int> m_board_dims;
+    std::pair<int,int> m_square_dims;
+    std::pair<int,int> m_board_position;
+    int m_number_of_pieces;
+    Piece * m_pieces = new Piece[m_number_of_pieces];
+    std::pair<int,int> assing_square_dims();
+
+public:
     Board(
-        int widht,
-        int height
+        std::pair<int,int> board_dims,
+        std::pair<int,int> board_position,
+        int number_of_pieces
     );
-    void draw_board(sf::RenderWindow & window);
-    int get_widht();
-    int get_height();
+    void draw_board(sf::RenderWindow& window);
+    void draw_pieces(sf::RenderWindow& window);
+    std::pair<int,int> get_board_dims() const;
+    std::pair<int,int> get_square_dims() const;
+    std::pair<int,int> get_board_position() const;
+    int get_number_of_pieces() const;
+
+
 };
 
 #endif

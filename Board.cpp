@@ -1,20 +1,30 @@
 #include "Board.h"
 
-Board::Board(): m_widht(400), m_height(400) {}
-
-Board::Board(int widht = 400, int height = 400) {
-    //add assert
-    m_widht = widht;
-    m_height = height;
+Board::Board(
+    //Constructor
+    std::pair<int,int> board_dims,
+    std::pair<int,int> board_position,
+    int number_of_pieces
+) {
+    m_board_dims = board_dims;
+    m_square_dims = assing_square_dims();
+    m_board_position = board_position;
+    m_number_of_pieces = number_of_pieces;
 }
 
 void Board::draw_board(sf::RenderWindow & window) {
-    int square_widht = static_cast < int > (m_widht / 8);
-    int square_height = static_cast < int > (m_height / 8);
+    /*
+    This method draws the board
+    Arguments:
+        window: The window to draw the board on
+    */
+    int square_widht = static_cast < int > (m_square_dims.first / 8);
+    int square_height = static_cast < int > (m_square_dims.second / 8);
     sf::RectangleShape square(sf::Vector2f(square_widht, square_height));
     for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 8; col++) {
             if ((row + col) % 2 == 0) {
+                //This color is brown
                 square.setFillColor(sf::Color(165, 42, 42));
             } else {
                 square.setFillColor(sf::Color::White);
@@ -25,10 +35,49 @@ void Board::draw_board(sf::RenderWindow & window) {
     }
 }
 
-int Board::get_widht() {
-    return m_widht;
+
+void Board::draw_pawns(sf::RenderWindow & window) {
+    for(int i{0}; i < 8; ++i){       
+        std::string pawn_name = "pawn " + std::to_string(i);
+
+    }
 }
 
-int Board::get_height() {
-    return m_height;
+int square_to_coords(std::pair<int,int> square_numbers)
+{
+
 }
+
+std::pair<int,int> Board::assing_square_dims(){
+    /*
+    This function assigns the dimensions of the squares
+    Returns:
+        std::pair<int,int>: The dimensions of the squares
+    */
+    int square_width = static_cast<int>(m_board_dims.first / 8);
+    int square_height = static_cast<int>(m_board_dims.second / 8);
+    return std::make_pair(square_width, square_height);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
