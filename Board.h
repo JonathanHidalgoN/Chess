@@ -1,5 +1,7 @@
 #include <string>
 #include <SFML/Graphics.hpp>
+#include <vector>
+#include <iostream>
 #include "Piece.h"
 
 #ifndef BOARD_H
@@ -13,7 +15,7 @@ private:
     std::pair<int,int> m_square_dims;
     std::pair<int,int> m_board_position;
     int m_number_of_pieces;
-    Piece * m_pieces = new Piece[m_number_of_pieces];
+    std::vector<Piece> m_pieces;
     std::pair<int,int> assing_square_dims();
     std::pair<int,int> square_to_coords(std::pair<int,int> square_numbers);    
     void set_up_pawns();
