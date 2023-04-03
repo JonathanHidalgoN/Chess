@@ -34,6 +34,7 @@ void Board::draw_board(sf::RenderWindow & window) {
             window.draw(square);
         }
     }
+    draw_pieces(window);
 }
 
 void draw_piece(sf::RenderWindow & window, const Piece & piece) {
@@ -65,6 +66,7 @@ int Board::get_number_of_pieces() const {
     Returns:
         int: The number of pieces
     */
+    return m_number_of_pieces;
 }
 
 std::pair<int,int> Board::get_board_dims() const {
