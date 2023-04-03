@@ -22,7 +22,7 @@ Piece::Piece()
     m_is_alive = false;
 }
 
-std::string Piece::map_name_to_file_name(){
+std::string Piece::map_name_to_file_name() const{
     /*
     This function maps the name of the piece to the file name.
     Returns:
