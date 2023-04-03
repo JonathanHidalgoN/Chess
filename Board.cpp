@@ -1,5 +1,4 @@
 #include "Board.h"
-
 Board::Board(
     //Constructor
     std::pair<int,int> board_dims,
@@ -10,6 +9,7 @@ Board::Board(
     m_square_dims = assing_square_dims();
     m_board_position = board_position;
     m_number_of_pieces = number_of_pieces;
+    m_pieces = std::vector<Piece>(m_number_of_pieces);
     set_up();
 }
 
@@ -19,9 +19,7 @@ void Board::draw_board(sf::RenderWindow & window) {
     Arguments:
         window: The window to draw the board on
     */
-    int square_widht = static_cast < int > (m_square_dims.first / 8);
-    int square_height = static_cast < int > (m_square_dims.second / 8);
-    sf::RectangleShape square(sf::Vector2f(square_widht, square_height));
+    sf::RectangleShape square(sf::Vector2f(m_square_dims.first, m_square_dims.second));
     for (int row = 0; row < 8; row++) {
         for (int col = 0; col < 8; col++) {
             if ((row + col) % 2 == 0) {
@@ -30,14 +28,14 @@ void Board::draw_board(sf::RenderWindow & window) {
             } else {
                 square.setFillColor(sf::Color::White);
             }
-            square.setPosition((col * square_height), (row * square_widht));
+            square.setPosition((col * m_square_dims.first), (row * m_square_dims.second));
             window.draw(square);
         }
     }
     draw_pieces(window);
 }
 
-void draw_piece(sf::RenderWindow & window, const Piece & piece) {
+void Board::draw_piece(sf::RenderWindow & window, const Piece & piece) {
     /*
     This method draws a piece
     Arguments:
@@ -47,7 +45,7 @@ void draw_piece(sf::RenderWindow & window, const Piece & piece) {
     std::string file_name = piece.map_name_to_file_name();
     sf::Texture piece_texture;
     if(!piece_texture.loadFromFile(file_name)){
-        //std::cout << "Error loading the piece texture" << std::endl;
+        //std::cout << "Error loading the piece texture, file not found : " << file_name << std::endl;
     }
     //Check if the piece is alive
     if(piece.get_is_alive()){
@@ -121,6 +119,7 @@ std::pair<int,int> Board::assing_square_dims(){
     return std::make_pair(square_width, square_height);
 }
 
+
 void Board::set_up_pawns()
 {
     /*
@@ -129,20 +128,22 @@ void Board::set_up_pawns()
     */
     for(int i{0}; i<8; ++i)
     {
-        m_pieces[i] = Piece(
+        m_pieces.at(i) = Piece(
             std::make_pair(i, 1),
-            "pawn" + std::to_string(i + 1), 
+            "pawn " + std::to_string(i + 1), 
             "white", 
-            true);
+            true,
+        "images");
     }
     //Name for pawns are not unique, but the color is
     for(int i{8}; i<16; ++i)
     {
-        m_pieces[i] = Piece(
+        m_pieces.at(i) = Piece(
             std::make_pair(i - 8, 6),
-            "pawn" + std::to_string(i - 7), 
+            "pawn " + std::to_string(i - 7), 
             "black", 
-            true);
+            true,
+        "images");
     }
 
 }
@@ -152,26 +153,30 @@ void Board::set_up_rooks()
     /*
     This method sets up the rooks for first turn
     */
-    m_pieces[16] = Piece(
+    m_pieces.at(16) = Piece(
         std::make_pair(0, 0),
         "rook 1", 
         "white", 
-        true);
-    m_pieces[17] = Piece(
+        true,
+        "images");
+    m_pieces.at(17) = Piece(
         std::make_pair(7, 0),
         "rook 2", 
         "white", 
-        true);
-    m_pieces[18] = Piece(
+        true,
+        "images");
+    m_pieces.at(18) = Piece(
         std::make_pair(0, 7),
         "rook 1", 
         "black", 
-        true);
-    m_pieces[19] = Piece(
+        true,
+        "images");
+    m_pieces.at(19) = Piece(
         std::make_pair(7, 7),
         "rook 2", 
         "black", 
-        true);    
+        true,
+        "images");    
 }
 
 void Board::set_up_bishops()
@@ -179,26 +184,30 @@ void Board::set_up_bishops()
     /*
     This method sets up the bishops for first turn
     */
-    m_pieces[20] = Piece(
+    m_pieces.at(20) = Piece(
         std::make_pair(2, 0),
         "bishop 1", 
         "white", 
-        true);
-    m_pieces[21] = Piece(
+        true,
+        "images");
+    m_pieces.at(21) = Piece(
         std::make_pair(5, 0),
         "bishop 2", 
         "white", 
-        true);
-    m_pieces[22] = Piece(
+        true,
+        "images");
+    m_pieces.at(22) = Piece(
         std::make_pair(2, 7),
         "bishop 1", 
         "black", 
-        true);
-    m_pieces[23] = Piece(
+        true,
+        "images");
+    m_pieces.at(23) = Piece(
         std::make_pair(5, 7),
         "bishop 2", 
         "black", 
-        true);    
+        true,
+        "images");    
 }
 
 void Board::set_up_king()
@@ -206,16 +215,18 @@ void Board::set_up_king()
     /*
     This method sets up the kings for first turn
     */
-    m_pieces[24] = Piece(
+    m_pieces.at(24) = Piece(
         std::make_pair(4, 0),
-        "king", 
+        "king 1", 
         "white", 
-        true);
-    m_pieces[25] = Piece(
+        true,
+        "images");
+    m_pieces.at(25) = Piece(
         std::make_pair(4, 7),
-        "king", 
+        "king 2", 
         "black", 
-        true);    
+        true,
+        "images");    
 }
 
 void Board::set_up_queen()
@@ -223,16 +234,18 @@ void Board::set_up_queen()
     /*
     This method sets up the queens for first turn
     */
-    m_pieces[26] = Piece(
+    m_pieces.at(26) = Piece(
         std::make_pair(3, 0),
-        "queen", 
+        "queen 1", 
         "white", 
-        true);
-    m_pieces[27] = Piece(
+        true,
+        "images");
+    m_pieces.at(27) = Piece(
         std::make_pair(3, 7),
-        "queen", 
+        "queen 2", 
         "black", 
-        true);    
+        true,
+        "images");    
 }
 
 void Board::set_up_knights()
@@ -240,26 +253,30 @@ void Board::set_up_knights()
     /*
     This method sets up the knights for first turn
     */
-    m_pieces[28] = Piece(
+    m_pieces.at(28) = Piece(
         std::make_pair(1, 0),
         "knight 1", 
         "white", 
-        true);
-    m_pieces[29] = Piece(
+        true,
+        "images");
+    m_pieces.at(29) = Piece(
         std::make_pair(6, 0),
         "knight 2", 
         "white", 
-        true);
-    m_pieces[30] = Piece(
+        true,
+        "images");
+    m_pieces.at(30) = Piece(
         std::make_pair(1, 7),
         "knight 1", 
         "black", 
-        true);
-    m_pieces[31] = Piece(
+        true,
+        "images");
+    m_pieces.at(31) = Piece(
         std::make_pair(6, 7),
         "knight 2", 
         "black", 
-        true);    
+        true,
+        "images");    
 }
 
 void Board::set_up(){
