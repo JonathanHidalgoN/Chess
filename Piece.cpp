@@ -65,3 +65,8 @@ void Piece::set_position(std::pair<int,int> new_position) {
     //Sets the position of the piece
     m_position = new_position;
 }
+
+void Piece::set_is_alive(bool new_status) {
+    //Sets the alive status of the piece
+    m_is_alive = new_status;
+}

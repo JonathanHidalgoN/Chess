@@ -38,6 +38,7 @@ public:
     bool get_is_alive() const;
     void set_position(std::pair<int,int> new_position);
     std::string map_name_to_file_name() const;
+    void set_is_alive(bool is_alive);
 };
 
 #endif
