@@ -3,13 +3,20 @@
 #include<iostream>
 
 class ChessGame {
-
+    /*
+    This class is the main class of the game, manage the game loop and evnets.
+    Attributes:
+        m_turn (int): The turn of the game, 0 for white and 1 for black.
+        m_board (Board): The board of the game.
+        m_pieces_positions (std::vector<std::pair<int,int>>): The positions of the pieces.
+        m_selected_piece (Piece*): The piece that is selected.
+        m_window (sf::RenderWindow): The window of the game.
+    */
 private:
     int m_turn{0};
     Board m_board;
     std::vector<std::pair<int,int>> m_pieces_positions;
     Piece * m_selected_piece{nullptr};
-    Board m_board;
     sf::RenderWindow m_window;
 
 public:
@@ -24,42 +31,28 @@ public:
         m_window.setFramerateLimit(30);
     }
 
-
-
-
-
-
-
+    void run()
+    /*
+    This method runs the game loop.
+    */
+    {
+        while (m_window.isOpen()) {
+            sf::Event event;
+            while (m_window.pollEvent(event)) {
+                if (event.type == sf::Event::Closed) {
+                    m_window.close();
+                }
+            }
+            m_window.clear();
+            m_board.draw_board(m_window);
+            m_window.display();
+        }
+    }
 };
 
 
-
-
-
-
-
-
-
 int main() {
-    Board board
-        (
-        std::make_pair(400, 400), 
-        std::make_pair(0, 0), 
-        32
-        );
-    sf::RenderWindow window(sf::VideoMode(400, 400), "Chess Game");
-    window.setFramerateLimit(30);
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            }
-        }
-        window.clear();
-        board.draw_board(window);
-        window.display();
-
-    }
+    ChessGame game;
+    game.run();
     return 0;
 }
