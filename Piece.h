@@ -12,6 +12,7 @@
  *   name: name of the piece
  *   color: color of the piece
  *   is_alive: if the piece is alive or not
+ *  images_path: path to the images of the pieces
  */
 
 
