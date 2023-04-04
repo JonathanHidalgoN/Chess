@@ -305,3 +305,13 @@ void Board::draw_pieces(sf::RenderWindow& window)
         draw_piece(window, m_pieces[i]);        
     }
 }
+
+std::vector<Piece> Board::get_pieces() const 
+{
+    /*
+    This method returns the pieces
+    Returns:
+        std::vector<Piece>: The pieces
+    */
+    return m_pieces;
+}

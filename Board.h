@@ -39,7 +39,7 @@ public:
     std::pair<int,int> get_square_dims() const;
     std::pair<int,int> get_board_position() const;
     int get_number_of_pieces() const;
-
+    std::vector<Piece> get_pieces() const;
 
 };
 
