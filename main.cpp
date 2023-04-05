@@ -19,6 +19,19 @@ private:
     Piece * m_selected_piece{nullptr};
     sf::RenderWindow m_window;
 
+    void check_mouse_click_on_piece(sf::Event::MouseButtonEvent mouse_event)
+    {
+        /*
+        This method checks if the mouse click is on a piece.
+        Arguments:
+            mouse_event (sf::Event::MouseButtonEvent): The mouse event.
+        */
+        if(mouse_event.button == sf::Mouse::Left)
+        {
+            //logic here
+        }
+    }
+
 public:
     ChessGame():
         m_board(
