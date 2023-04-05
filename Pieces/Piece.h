@@ -5,7 +5,7 @@
 #define PIECE_H
 
 /*
- * Piece class
+ * Piece abstract base class
  * This class is responsible for creating the pieces.
  * Arguments:
  *   position: position of the piece
@@ -37,8 +37,6 @@ public:
     bool get_is_alive() const;
     void set_position(std::pair<int,int> new_position);
     void set_is_alive(bool is_alive);
-    virtual std::vector<std::pair<int,int>> get_possible_moves() const = 0;
-
 };
 
 #endif

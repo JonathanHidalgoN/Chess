@@ -43,8 +43,3 @@ void Piece::set_is_alive(bool new_status) {
     //Sets the alive status of the piece
     m_is_alive = new_status;
 }
-
-std::vector<std::pair<int,int>> Piece::get_possible_moves() const {
-    //Returns the possible moves of the piece
-    return std::vector<std::pair<int,int>>();
-}
