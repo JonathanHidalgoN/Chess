@@ -1,9 +1,4 @@
-#include <string>
 #include <SFML/Graphics.hpp>
-#include <vector>
-#include <iostream>
-#include "Piece.h"
-
 #ifndef BOARD_H
 #define BOARD_H
 
