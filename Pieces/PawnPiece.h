@@ -19,7 +19,6 @@ public:
         bool is_alive
     ) : Piece(position, "Pawn", color, is_alive){}
 
-    std::vector<std::pair<int,int>> get_possible_moves() const override;
 };
 
 #endif
