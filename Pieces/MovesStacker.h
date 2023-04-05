@@ -18,9 +18,6 @@ public:
     MovesStacker(std::pair<int,int> piece_position);
     std::pair<int,int> stack_move_coords(int x_moves, int y_moves) const;
     std::vector<std::pair<int,int>> stack_moves_in_direction(int direction, int number_of_moves, std::vector<std::pair<int,int>> possible_moves) const;
-    
-    
-
 };
 
 #endif
