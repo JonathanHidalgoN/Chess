@@ -1,7 +1,8 @@
 #ifndef CHESSMODEL_H
 #define CHESSMODEL_H
 
-#include "Pieces/Piece.h"
+#include "Moves/MovesValidator.h"
+#include "Setup/SetUpPieces.h"
 
 class ChessModel {
 
@@ -11,6 +12,14 @@ class ChessModel {
 
 private:
     int m_turn{0};
+    int number_of_pieces{32};
+    std::vector<Piece> m_pieces;
+    void set_up_pieces(SetUpPieces &setup);
+
+public:
+    ChessModel();
+    void start_game();
+
     
     
 
