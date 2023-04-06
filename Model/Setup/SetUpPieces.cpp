@@ -2,6 +2,31 @@
 
 SetUpPieces::SetUpPieces() {};
 
+Piece SetUpPieces::place_piece(std::pair<int,int> position, std::string name, std::string color) {
+    /*
+    This function is responsible for placing a piece on the board.
+    Arguments:
+        position: position of the piece
+        name: name of the piece
+        color: color of the piece
+    Returns:
+        piece: piece
+    */
+   if (name == "Pawn")
+        return PawnPiece(position, color, true);
+    else if (name == "Rook")
+        return RookPiece(position, color, true);
+    else if (name == "Horse")
+        return HorsePiece(position, color, true);
+    else if (name == "Bishop")
+        return BishopPiece(position, color, true);
+    else if (name == "Queen")
+        return QueenPiece(position, color, true);
+    else if (name == "King")
+        return KingPiece(position, color, true);
+};
+
+
 std::vector<Piece> SetUpPieces::place_initial_pieces(std::vector<Piece> &pieces) {
 
     /*
