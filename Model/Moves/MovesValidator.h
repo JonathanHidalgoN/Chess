@@ -15,16 +15,17 @@ class MovesValidator {
     */
 
 private:
-    std::vector<std::pair<int, int>> compute_pawn_moves(Piece const &piece);
-    std::vector<std::pair<int, int>> compute_knight_moves(Piece const &piece);
-    std::vector<std::pair<int, int>> compute_horse_moves(Piece const &piece);
-    std::vector<std::pair<int, int>> compute_rook_moves(Piece const &piece);
-    std::vector<std::pair<int, int>> compute_queen_moves(Piece const &piece);
-    std::vector<std::pair<int, int>> compute_king_moves(Piece const &piece);
+    MovesStacker m_moves_stacker;
+    std::vector<std::pair<int, int>> compute_pawn_moves(std::pair<int,int> position,std::string const &color);
+    std::vector<std::pair<int, int>> compute_knight_moves();
+    std::vector<std::pair<int, int>> compute_horse_moves();
+    std::vector<std::pair<int, int>> compute_rook_moves();
+    std::vector<std::pair<int, int>> compute_queen_moves();
+    std::vector<std::pair<int, int>> compute_king_moves();
 
 public:
     MovesValidator();
-    std::vector<std::pair<int, int>> compute_valid_moves(Piece const &piece, MovesStacker const &movesStacker);
+    std::vector<std::pair<int, int>> compute_valid_moves(Piece const &piece);
 
 };
 
