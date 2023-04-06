@@ -46,3 +46,17 @@ std::vector<Piece> SetUpPieces::place_initial_pieces(std::vector<Piece> &pieces)
     place_initial_kings();
 };
 
+std::vector<Piece> SetUpPieces::place_initial_pawns() {
+    /*
+    This function is responsible for placing the pawns on the board.
+    Returns:
+        pawns: vector of pawns
+    */
+    std::vector<Piece> pawns;
+    for (int i = 0; i < 8; i++) {
+        pawns.push_back(place_piece(std::make_pair(i, 6), "Pawn", "White"));
+        pawns.push_back(place_piece(std::make_pair(i, 1), "Pawn", "Black"));
+    }
+    return pawns;
+};
+
