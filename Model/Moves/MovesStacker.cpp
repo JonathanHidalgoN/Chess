@@ -79,7 +79,7 @@ std::pair<int,int>MovesStacker::stack_move_coords(int x_moves, int y_moves) cons
     return std::make_pair(m_piece_position.first + x_moves, m_piece_position.second + y_moves);
 };
 
-std::vector<std::pair<int,int>> MovesStacker::stack_moves_in_direction(int direction, int number_of_moves, std::vector<std::pair<int,int>> possible_moves = {}) const
+std::vector<std::pair<int,int>> MovesStacker::stack_moves_in_direction(int direction, int number_of_moves, std::vector<std::pair<int,int>>  possible_moves = {}) const
 {
     /*
     This method stack a number of moves in a given direction, relative to the piece's position.
@@ -94,12 +94,13 @@ std::vector<std::pair<int,int>> MovesStacker::stack_moves_in_direction(int direc
     Returns:
         std::vector<std::pair<int,int>>: vector of possible moves
     */
+    std::vector<std::pair<int,int>> generated_moves;
     for (int i = 1; i <= number_of_moves; i++)
     {
-        possible_moves.push_back(stack_move_in_direction(direction, i));
+        generated_moves.push_back(stack_move_in_direction(direction, i));
     }
-    return possible_moves;
-    //Maybe use reference instead of return, but that way I modify the vector in the function, moves are not that expensive. 
+    generated_moves.insert(generated_moves.end(), possible_moves.begin(), possible_moves.end());
+    return generated_moves;
 };
 
 std::pair<int,int> MovesStacker::get_piece_position() const
