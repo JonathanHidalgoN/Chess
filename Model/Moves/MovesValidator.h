@@ -17,11 +17,11 @@ class MovesValidator {
 private:
     MovesStacker m_moves_stacker;
     std::vector<std::pair<int, int>> compute_pawn_moves(std::pair<int,int> position,std::string const &color);
-    std::vector<std::pair<int, int>> compute_knight_moves();
-    std::vector<std::pair<int, int>> compute_horse_moves();
-    std::vector<std::pair<int, int>> compute_rook_moves();
-    std::vector<std::pair<int, int>> compute_queen_moves();
-    std::vector<std::pair<int, int>> compute_king_moves();
+    std::vector<std::pair<int, int>> compute_knight_moves(std::pair<int,int> position);
+    std::vector<std::pair<int, int>> compute_horse_moves(std::pair<int,int> position);
+    std::vector<std::pair<int, int>> compute_rook_moves(std::pair<int,int> position);
+    std::vector<std::pair<int, int>> compute_queen_moves(std::pair<int,int> position);
+    std::vector<std::pair<int, int>> compute_king_moves(std::pair<int,int> position);
 
 public:
     MovesValidator();
