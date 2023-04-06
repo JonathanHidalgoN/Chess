@@ -44,3 +44,28 @@ std::vector<std::pair<int,int>> MovesValidator::compute_rook_moves(std::pair<int
     possible_moves = (m_moves_stacker.stack_moves_in_direction(7, 7, possible_moves));
     return possible_moves;
 };
+
+std::vector<std::pair<int,int>> MovesValidator::compute_valid_moves(Piece const & piece)
+{
+    /*
+    This function is responsible for generating valid moves.
+    Arguments:
+        piece: piece for which we want to generate moves
+    Returns:
+        possible_moves: vector of possible moves
+    */
+    std::vector<std::pair<int,int>> possible_moves;
+    std::string piece_type = piece.get_name();
+    std::pair<int,int> position = piece.get_position();
+    std::string color = piece.get_color();
+
+    if (piece_type == "Pawn")
+    {
+        possible_moves = compute_pawn_moves(position, color);
+    }
+    else if (piece_type == "Rook")
+    {
+        possible_moves = compute_rook_moves(position);
+    }
+    return possible_moves;
+};
