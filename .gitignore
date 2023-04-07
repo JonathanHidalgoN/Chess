@@ -1,5 +1,5 @@
 *.o
 *app
-
+/build
 images
 .vscode
