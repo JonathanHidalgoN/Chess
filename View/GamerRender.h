@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include"BoardPixelMapper.h"
-
+#include"../PieceInfo.h"
 
 class ChessRender
 {
@@ -18,7 +18,7 @@ class ChessRender
 private:
     sf::RenderWindow m_window;
     std::pair<unsigned int, unsigned int> m_board_size;
-    void draw_piece(std::string name, std::pair<int, int> position, std::string color);
+    void draw_piece(const PieceInfo& piece_info);
     BoardPixelMapper m_board_pixel_mapper;
     void draw_board();
     std::string map_name_to_file_name(std::string name, std::string color);

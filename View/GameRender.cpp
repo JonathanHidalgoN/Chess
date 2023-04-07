@@ -73,7 +73,7 @@ std::string ChessRender::map_name_to_file_name(std::string name, std::string col
     return file_name;
 };
 
-void ChessRender::draw_piece(std::string name, std::pair<int, int> position, std::string color)
+void ChessRender::draw_piece(const PieceInfo& piece_info)
     /*
     This function draws the pieces. It is called by draw_chess().
     Arguments:
@@ -83,13 +83,13 @@ void ChessRender::draw_piece(std::string name, std::pair<int, int> position, std
         
     */
 {
-    std::string piece_file_name = map_name_to_file_name(name, color);
+    std::string piece_file_name = map_name_to_file_name(piece_info.name, piece_info.color);
     sf::Texture piece_texture;
     sf::Sprite piece_sprite;
     if(!piece_texture.loadFromFile(piece_file_name)) {
         //std::cout << "Error loading piece texture" << std::endl;
     }
-    std::pair<unsigned int, unsigned int> pixel_coords = m_board_pixel_mapper.transform_square_coords_to_pixel(position);
+    std::pair<unsigned int, unsigned int> pixel_coords = m_board_pixel_mapper.transform_square_coords_to_pixel(piece_info.position);
     piece_sprite.setTexture(piece_texture);
     piece_sprite.setPosition(pixel_coords.first, pixel_coords.second);
     m_window.draw(piece_sprite);
