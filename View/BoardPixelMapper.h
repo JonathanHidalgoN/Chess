@@ -11,6 +11,8 @@ class BoardPixelMapper
 private:
     const std::pair<unsigned int, unsigned int> m_board_size;
     const std::pair<unsigned int, unsigned int> m_window_size;
+    const std::pair<unsigned int, unsigned int> m_square_size;
+    std::pair<unsigned int, unsigned int> compute_square_dims();
 
 public:
     BoardPixelMapper(
