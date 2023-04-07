@@ -54,18 +54,31 @@ void ChessRender::draw_board()
 
 };
 
-//
+std::string ChessRender::map_name_to_file_name(std::string name, std::string color)
+    /*
+    This function maps the name of the piece to the file name of the piece.
+    Arguments:
+        name: The name of the piece.
+        color: The color of the piece.
+    Returns:
+        The file name of the piece.
+    */
+{
+    std::string file_name;
+    if (color == "white") {
+        file_name = "white_" + name + ".png";
+    } else {
+        file_name = "black_" + name + ".png";
+    }
+    return file_name;
+};
+
 void ChessRender::draw_piece(std::string name, std::pair<int, int> position, std::string color)
     /*
     This function draws the pieces. It is called by draw_chess().
     */
 {
-    std::string piece_file_name;
-    if (color == "white") {
-        piece_file_name = "white_" + name + ".png";
-    } else {
-        piece_file_name = "black_" + name + ".png";
-    }
+    std::string piece_file_name = map_name_to_file_name(name, color);
     sf::Texture piece_texture;
     sf::Sprite piece_sprite;
     if(!piece_texture.loadFromFile(piece_file_name)) {

@@ -13,6 +13,7 @@ private:
     void draw_piece(std::string name, std::pair<int, int> position, std::string color);
     BoardPixelMapper m_board_pixel_mapper;
     void draw_board();
+    std::string map_name_to_file_name(std::string name, std::string color);
     void config_window(
         const unsigned int width,
         const unsigned int height,
