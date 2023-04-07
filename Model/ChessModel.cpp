@@ -28,7 +28,7 @@ void ChessModel::set_turn(int turn) {
     m_turn = turn;
 }
 
-    PieceInfo ChessModel::get_piece_info(int index) const {
+PieceInfo ChessModel::get_piece_info(int index) const {
     /*
     This function is responsible for getting the information of a piece.
     Arguments:
@@ -41,4 +41,19 @@ void ChessModel::set_turn(int turn) {
     piece_info.color = m_pieces[index].get_color();
     piece_info.name = m_pieces[index].get_name();
     piece_info.alive = m_pieces[index].get_is_alive();
+}
+
+std::vector<int> ChessModel::get_alive_pieces_index() const {
+    /*
+    This function is responsible for getting the index of the alive pieces.
+    Returns:
+        A vector containing the index of the alive pieces.
+    */
+    std::vector<int> alive_pieces_index;
+    for (int i = 0; i < number_of_pieces; i++) {
+        if (m_pieces[i].get_is_alive()) {
+            alive_pieces_index.push_back(i);
+        }
+    }
+    return alive_pieces_index;
 }

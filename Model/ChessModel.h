@@ -28,7 +28,9 @@ public:
     ChessModel();
     void start_game();
     void set_turn(int turn);
-    PieceInfo get_piece_info(int index) const; 
+    std::vector<int> get_alive_pieces_index() const;
+    PieceInfo get_piece_info(int index) const;
+
 };
 
 #endif
