@@ -36,9 +36,9 @@ void ChessModel::set_turn(int turn) {
     Returns:
         A tuple containing the position, name and color of the piece.
     */
-    //I don't know if this is the best way to parse info from the piece, maybe I should use a struct or something.   
     PieceInfo piece_info;
     piece_info.position = m_pieces[index].get_position();
     piece_info.color = m_pieces[index].get_color();
     piece_info.name = m_pieces[index].get_name();
+    piece_info.alive = m_pieces[index].get_is_alive();
 }
