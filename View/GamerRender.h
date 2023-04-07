@@ -32,13 +32,15 @@ private:
 public:
     ChessRender(
         const unsigned int width = 400,
-        const unsigned int height = 600,
+        const unsigned int height = 400,
         const std::string title = "Chess",
         const unsigned int frame_rate = 60
     );
 
     void draw_chess();
+    //Maybe delete this, not for now.
     bool is_open() const;
+    bool render_game(sf::Event event);
 
 
 };

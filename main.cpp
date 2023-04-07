@@ -17,9 +17,15 @@ public:
         /*
         This function runs the game.
         */
-        m_chess_render.draw_chess();
+        while (m_chess_render.is_open())
+        {
+            sf::Event event;
+            if (!m_chess_render.render_game(event))
+            {
+                break;
+            }
+        }
     }
-
 };
 
 int main() {
