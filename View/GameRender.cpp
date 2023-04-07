@@ -66,9 +66,9 @@ std::string ChessRender::map_name_to_file_name(std::string name, std::string col
 {
     std::string file_name;
     if (color == "white") {
-        file_name = "white_" + name + ".png";
+        file_name =  "View/images/w_" + name + ".png";
     } else {
-        file_name = "black_" + name + ".png";
+        file_name = "View/images/b_" + name + ".png";
     }
     return file_name;
 };
@@ -95,3 +95,13 @@ void ChessRender::draw_piece(std::string name, std::pair<int, int> position, std
     m_window.draw(piece_sprite);
 };
 
+void ChessRender::draw_chess()
+    /*
+    This function draws the chess game.
+    */
+{
+    m_window.clear();
+    draw_board();
+    draw_piece("pawn", {0, 0}, "white");
+    m_window.display();
+};
