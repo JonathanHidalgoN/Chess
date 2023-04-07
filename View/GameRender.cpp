@@ -5,7 +5,7 @@ ChessRender::ChessRender(
     const unsigned int height,
     const std::string title,
     const unsigned int frame_rate
-) : m_board_size(width, height)  
+) : m_board_size(width, height), m_board_pixel_mapper(width, height, width, height)  
 {
     config_window(width, height, title, frame_rate);    
 };
@@ -53,3 +53,23 @@ void ChessRender::draw_board()
     }  
 
 };
+
+//
+void ChessRender::draw_piece(std::string name, std::pair<int, int> position, std::string color)
+    /*
+    This function draws the pieces. It is called by draw_chess().
+    */
+{
+    std::string piece_file_name;
+    if (color == "white") {
+        piece_file_name = "white_" + name + ".png";
+    } else {
+        piece_file_name = "black_" + name + ".png";
+    }
+    sf::Texture piece_texture;
+    if(!piece_texture.loadFromFile(piece_file_name)) {
+        //std::cout << "Error loading piece texture" << std::endl;
+    }
+
+};
+

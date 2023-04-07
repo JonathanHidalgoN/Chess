@@ -2,6 +2,8 @@
 #define CHESSRENDER_H
 
 #include <SFML/Graphics.hpp>
+#include"BoardPixelMapper.h"
+
 
 class ChessRender
 {
@@ -9,6 +11,7 @@ private:
     sf::RenderWindow m_window;
     std::pair<unsigned int, unsigned int> m_board_size;
     void draw_piece(std::string name, std::pair<int, int> position, std::string color);
+    BoardPixelMapper m_board_pixel_mapper;
     void draw_board();
     void config_window(
         const unsigned int width,
