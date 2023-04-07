@@ -7,6 +7,14 @@
 
 class ChessRender
 {
+    /*
+    This class is used to render the chess game.
+    Arguments:
+        width: The width of the window.
+        height: The height of the window.
+        title: The title of the window.
+        frame_rate: The frame rate of the window.
+    */
 private:
     sf::RenderWindow m_window;
     std::pair<unsigned int, unsigned int> m_board_size;

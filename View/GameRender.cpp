@@ -76,6 +76,11 @@ std::string ChessRender::map_name_to_file_name(std::string name, std::string col
 void ChessRender::draw_piece(std::string name, std::pair<int, int> position, std::string color)
     /*
     This function draws the pieces. It is called by draw_chess().
+    Arguments:
+        name: The name of the piece.
+        position: The position of the piece.
+        color: The color of the piece.
+        
     */
 {
     std::string piece_file_name = map_name_to_file_name(name, color);
