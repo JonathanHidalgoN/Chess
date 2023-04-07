@@ -105,3 +105,11 @@ void ChessRender::draw_chess()
     draw_piece("pawn", {0, 0}, "white");
     m_window.display();
 };
+
+bool ChessRender::is_open() const
+    /*
+    This function returns whether the window is open.
+    */
+{
+    return m_window.isOpen();
+};

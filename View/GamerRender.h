@@ -38,6 +38,7 @@ public:
     );
 
     void draw_chess();
+    bool is_open() const;
 
 
 };
