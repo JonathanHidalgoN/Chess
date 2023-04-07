@@ -7,7 +7,8 @@ class ChessRender
 {
 private:
     sf::RenderWindow m_window;
-    void draw_piece();
+    std::pair<unsigned int, unsigned int> m_board_size;
+    void draw_piece(std::string name, std::pair<int, int> position, std::string color);
     void draw_board();
     void config_window(
         const unsigned int width,
