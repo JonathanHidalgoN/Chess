@@ -43,6 +43,8 @@ PieceInfo ChessModel::get_piece_info(int index) const {
     piece_info.alive = m_pieces[index].get_is_alive();
 }
 
+//This method is not elegant in my opinion, nothing to do with the logic of the game.
+//Maybe is better to create a class that communicates with the view and the model.
 std::vector<int> ChessModel::get_alive_pieces_index() const {
     /*
     This function is responsible for getting the index of the alive pieces.

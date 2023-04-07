@@ -1,16 +1,10 @@
 #ifndef CHESSMODEL_H
 #define CHESSMODEL_H
 
+#include "../PieceInfo.h"
 #include "Moves/MovesValidator.h"
 #include "Setup/SetUpPieces.h"
 #include "tuple"
-
-struct PieceInfo {
-    std::pair<int,int> position;
-    std::string color;
-    std::string name;
-    bool alive;
-};
 
 class ChessModel {
 
