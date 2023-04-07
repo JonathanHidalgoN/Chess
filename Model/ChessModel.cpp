@@ -27,3 +27,18 @@ void ChessModel::set_turn(int turn) {
     */
     m_turn = turn;
 }
+
+    PieceInfo ChessModel::get_piece_info(int index) const {
+    /*
+    This function is responsible for getting the information of a piece.
+    Arguments:
+        index: The index of the piece.
+    Returns:
+        A tuple containing the position, name and color of the piece.
+    */
+    //I don't know if this is the best way to parse info from the piece, maybe I should use a struct or something.   
+    PieceInfo piece_info;
+    piece_info.position = m_pieces[index].get_position();
+    piece_info.color = m_pieces[index].get_color();
+    piece_info.name = m_pieces[index].get_name();
+}

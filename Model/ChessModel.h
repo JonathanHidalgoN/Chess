@@ -3,6 +3,13 @@
 
 #include "Moves/MovesValidator.h"
 #include "Setup/SetUpPieces.h"
+#include "tuple"
+
+struct PieceInfo {
+    std::pair<int,int> position;
+    std::string color;
+    std::string name;
+};
 
 class ChessModel {
 
@@ -20,9 +27,7 @@ public:
     ChessModel();
     void start_game();
     void set_turn(int turn);
-    
-    
-
+    PieceInfo get_piece_info(int index) const; 
 };
 
 #endif
