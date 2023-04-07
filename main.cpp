@@ -9,6 +9,15 @@ class ChessGame
 private:
     ChessModel m_chess_model;
     ChessRender m_chess_render;
+    void start_game()
+    {
+        /*
+        This function is responsible for starting the game.
+        */
+        m_chess_model.start_game();
+        //function to parse the board and draw the pieces.
+    }
+
 public:
     ChessGame(): m_chess_model(), m_chess_render() {};
     

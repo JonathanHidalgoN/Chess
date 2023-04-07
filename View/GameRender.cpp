@@ -119,6 +119,8 @@ bool ChessRender::render_game(sf::Event event)
     This function renders the game.
     Arguments:
         event: The event that is passed to the window.
+    Returns:
+        Whether the window is open.
     */
 {
         while (m_window.pollEvent(event)) {
