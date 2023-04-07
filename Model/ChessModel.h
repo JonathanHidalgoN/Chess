@@ -19,7 +19,7 @@ private:
 public:
     ChessModel();
     void start_game();
-
+    void set_turn(int turn);
     
     
 

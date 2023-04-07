@@ -18,3 +18,12 @@ void ChessModel::start_game() {
     SetUpPieces setup;
     set_up_pieces(setup);
 }
+
+void ChessModel::set_turn(int turn) {
+    /*
+    This function is responsible for setting the turn.
+    Arguments:
+        turn: The turn of the game.
+    */
+    m_turn = turn;
+}
