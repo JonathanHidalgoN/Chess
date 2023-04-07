@@ -113,3 +113,21 @@ bool ChessRender::is_open() const
 {
     return m_window.isOpen();
 };
+
+bool ChessRender::render_game(sf::Event event)
+    /*
+    This function renders the game.
+    Arguments:
+        event: The event that is passed to the window.
+    */
+{
+        while (m_window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                m_window.close();
+                return false;
+            }
+        }
+        draw_chess();
+        return true;
+    
+};
