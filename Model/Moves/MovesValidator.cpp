@@ -12,16 +12,16 @@ std::vector<std::pair<int,int>> MovesValidator::compute_pawn_moves(std::pair<int
     Returns:
         possible_moves: vector of possible moves
     */
-    std::vector<std::pair<int,int>> possible_moves;
+    std::vector<std::pair<int,int>> possible_moves = {};
     m_moves_stacker.change_piece(position);
 
     if (color == "White")
     {
-        possible_moves = (m_moves_stacker.stack_moves_in_direction(5, 1));  
+        possible_moves = (m_moves_stacker.stack_moves_in_direction(5, 1, possible_moves));  
     }
     else if (color == "Black")
     {
-        possible_moves = (m_moves_stacker.stack_moves_in_direction(3, 1));
+        possible_moves = (m_moves_stacker.stack_moves_in_direction(3, 1, possible_moves));
     }
     return possible_moves;
 };
