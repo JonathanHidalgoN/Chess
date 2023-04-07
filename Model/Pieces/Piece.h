@@ -30,6 +30,7 @@ public:
         std::string color,
         bool is_alive
     );
+    Piece();
 
     std::pair<int,int> get_position() const;
     std::string get_name() const;

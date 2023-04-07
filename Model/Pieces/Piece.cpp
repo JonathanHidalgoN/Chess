@@ -1,5 +1,19 @@
 #include "Piece.h"
 
+//I have added the default constructor to the Piece class
+//This is because I am using a vector of Pieces in the ChessModel class
+//and I need to be able to create a vector of Pieces with the default constructor
+//maybe there is a better way to do this?
+//This note is for myself to remember why I added the default constructor
+//I will remove this note when I have a better idea of how to do this
+Piece::Piece() {
+    //Default constructor
+    m_position = std::make_pair(0,0);
+    m_name = "Default";
+    m_color = "Default";
+    m_is_alive = false;
+}
+
 Piece::Piece(
     std::pair<int,int> position,
     std::string name,
