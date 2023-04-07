@@ -59,3 +59,12 @@ std::vector<int> ChessModel::get_alive_pieces_index() const {
     }
     return alive_pieces_index;
 }
+
+int ChessModel::get_turn() const {
+    /*
+    This function is responsible for getting the turn.
+    Returns:
+        The turn of the game.
+    */
+    return m_turn;
+}
