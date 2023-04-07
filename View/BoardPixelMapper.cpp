@@ -33,3 +33,17 @@ std::pair<unsigned int, unsigned int> BoardPixelMapper::transform_square_coords_
     unsigned int y = static_cast<unsigned int>(square_coords.second * m_square_size.second);
     return std::pair<unsigned int, unsigned int>(x, y);
 };
+
+std::pair<int, int> BoardPixelMapper::transform_pixel_coords_to_square(std::pair<unsigned int, unsigned int> pixel_coords)
+{
+    /*
+    This function transforms the pixel coordinates to square coordinates.
+    Arguments:
+        pixel_coords: The pixel coordinates.
+    Returns:
+        The square coordinates.
+    */
+    int x = static_cast<int>(pixel_coords.first / m_square_size.first);
+    int y = static_cast<int>(pixel_coords.second / m_square_size.second);
+    return std::pair<int, int>(x, y);
+};
