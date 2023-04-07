@@ -95,14 +95,16 @@ void ChessRender::draw_piece(const PieceInfo& piece_info)
     m_window.draw(piece_sprite);
 };
 
-void ChessRender::draw_chess()
+void ChessRender::draw_chess(const std::vector<PieceInfo>& piece_info_list)
     /*
     This function draws the chess game.
     */
 {
     m_window.clear();
     draw_board();
-    draw_piece("pawn", {0, 0}, "white");
+    for (const PieceInfo& piece_info : piece_info_list) {
+        draw_piece(piece_info);
+    }
     m_window.display();
 };
 
@@ -114,7 +116,7 @@ bool ChessRender::is_open() const
     return m_window.isOpen();
 };
 
-bool ChessRender::render_game(sf::Event event)
+bool ChessRender::render_game(sf::Event event, const std::vector<PieceInfo>& piece_info_list)
     /*
     This function renders the game.
     Arguments:
@@ -129,7 +131,7 @@ bool ChessRender::render_game(sf::Event event)
                 return false;
             }
         }
-        draw_chess();
+        draw_chess(piece_info_list);
         return true;
     
 };

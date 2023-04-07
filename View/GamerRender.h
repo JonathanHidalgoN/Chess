@@ -28,6 +28,7 @@ private:
         const std::string title,
         const unsigned int frame_rate
         );
+    void draw_chess(const std::vector<PieceInfo>& pieces_info);
 
 public:
     ChessRender(
@@ -37,12 +38,9 @@ public:
         const unsigned int frame_rate = 60
     );
 
-    void draw_chess();
     //Maybe delete this, not for now.
     bool is_open() const;
-    bool render_game(sf::Event event);
-
-
+    bool render_game(sf::Event event, const std::vector<PieceInfo>& pieces_info);
 };
 
 #endif 
