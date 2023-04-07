@@ -2,12 +2,12 @@
 #define SETUPPIECES_H
 
 #include "../Pieces/Piece.h"
-#include "../Pieces/PawnPiece.h"
-#include "../Pieces/RookPiece.h"
-#include "../Pieces/HorsePiece.h"
-#include "../Pieces/BishopPiece.h"
-#include "../Pieces/QueenPiece.h"
-#include "../Pieces/KingPiece.h"
+#include "../Pieces/PawnPiece.cpp"
+#include "../Pieces/RookPiece.cpp"
+#include "../Pieces/HorsePiece.cpp"
+#include "../Pieces/BishopPiece.cpp"
+#include "../Pieces/QueenPiece.cpp"
+#include "../Pieces/KingPiece.cpp"
 
 class SetUpPieces {
     /*
