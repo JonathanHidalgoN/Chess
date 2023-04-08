@@ -41,6 +41,7 @@ PieceInfo ChessModel::get_piece_info(int index) const {
     piece_info.color = m_pieces[index].get_color();
     piece_info.name = m_pieces[index].get_name();
     piece_info.alive = m_pieces[index].get_is_alive();
+    return piece_info;
 }
 
 //This method is not elegant in my opinion, nothing to do with the logic of the game.
