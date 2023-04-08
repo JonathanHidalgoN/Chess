@@ -4,7 +4,6 @@
 #include "../PieceInfo.h"
 #include "Moves/MovesValidator.h"
 #include "Setup/SetUpPieces.h"
-#include "tuple"
 
 class ChessModel {
 
