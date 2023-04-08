@@ -65,7 +65,7 @@ std::string ChessRender::map_name_to_file_name(std::string name, std::string col
     */
 {
     std::string file_name;
-    if (color == "white") {
+    if (color == "White") {
         file_name =  "View/images/w_" + name + ".png";
     } else {
         file_name = "View/images/b_" + name + ".png";
