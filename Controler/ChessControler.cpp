@@ -93,7 +93,7 @@ void  ChessControler::handle_events(sf::Event event, std::vector<PieceInfo> &pie
         case sf::Event::MouseButtonPressed:
             handle_clicks(event, pieces);
         case sf::Event::MouseButtonReleased:
-            //return std::make_tuple("release",check_mouse_button_released(event.mouseButton));
+            handle_released_mouse(event, pieces);
         case sf::Event::MouseMoved:
             handle_moving_mouse(event, pieces);
         }
@@ -127,6 +127,17 @@ void ChessControler::handle_moving_mouse(sf::Event event, std::vector<PieceInfo>
     */
     std::pair<int,int> coords;
     coords = follow_mouse(event.mouseMove);
+    //Note we are modifying the argument
+    pieces[m_selected_piece_index].position = coords;
+}
+
+void ChessControler::handle_released_mouse(sf::Event event, std::vector<PieceInfo> &pieces)
+{
+    /*
+    This function is used to handle the released mouse.
+    */
+    std::pair<int,int> coords;
+    coords = check_mouse_button_released(event.mouseButton);
     //Note we are modifying the argument
     pieces[m_selected_piece_index].position = coords;
 }
