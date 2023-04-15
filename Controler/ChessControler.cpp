@@ -60,7 +60,7 @@ std::pair<int,int> ChessControler::follow_mouse(sf::Event::MouseMoveEvent mouse_
     return mouse_position;
 }
 
-std::tuple<std::string,std::pair<int,int>> ChessControler::handle_events(sf::Event event, std::vector<PieceInfo> &pieces)
+void  ChessControler::handle_events(sf::Event event, std::vector<PieceInfo> &pieces)
     {
         /*
         This function handles the events.
@@ -74,13 +74,34 @@ std::tuple<std::string,std::pair<int,int>> ChessControler::handle_events(sf::Eve
         {
         case sf::Event::Closed:
             //do something to close the window, maybe pass the window this method?
-            return std::make_tuple("close",std::pair<int,int>(0,0));
+            //return std::make_tuple("close",std::pair<int,int>(0,0));
         case sf::Event::MouseButtonPressed:
             check_mouse_click(event.mouseButton);
-            return std::make_tuple("click",check_mouse_click(event.mouseButton));
+            //return std::make_tuple("click",check_mouse_click(event.mouseButton));
         case sf::Event::MouseButtonReleased:
-            return std::make_tuple("release",check_mouse_button_released(event.mouseButton));
+            //return std::make_tuple("release",check_mouse_button_released(event.mouseButton));
         case sf::Event::MouseMoved:
-            return std::make_tuple("move",follow_mouse(event.mouseMove));
+            //return std::make_tuple("move",follow_mouse(event.mouseMove));
         }
     }
+
+int ChessControler::check_click_on_piece(std::pair<int,int> mouse_position, std::vector<PieceInfo> &pieces)
+{
+    /*
+    This function is used to check if the mouse has been clicked on a piece.
+    If the mouse has been clicked on a piece, the function returns the index of the piece.
+    Arguments:
+        mouse_position: the position of the mouse
+        pieces: Struct that contains the information about the pieces
+    Returns:
+        index: the index of the piece
+    */
+    for(int i = 0; i < pieces.size(); i++)
+    {
+        if(pieces[i].position.first == mouse_position.first && pieces[i].position.second == mouse_position.second)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
