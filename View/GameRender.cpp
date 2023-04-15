@@ -73,7 +73,7 @@ std::string ChessRender::map_name_to_file_name(std::string name, std::string col
     return file_name;
 };
 
-void ChessRender::draw_piece(const PieceInfo& piece_info)
+void ChessRender::draw_piece(const PieceInfo& piece_info, const BoardPixelMapper& board_pixel_mapper)
     /*
     This function draws the pieces. It is called by draw_chess().
     Arguments:
@@ -90,13 +90,13 @@ void ChessRender::draw_piece(const PieceInfo& piece_info)
         //std::cout << "Error loading piece texture" << std::endl;
     }
     //Need to fix this.
-    std::pair<unsigned int, unsigned int> pixel_coords = m_board_pixel_mapper.transform_square_coords_to_pixel(piece_info.position);
+    std::pair<unsigned int, unsigned int> pixel_coords = board_pixel_mapper.transform_square_coords_to_pixel(piece_info.position);
     piece_sprite.setTexture(piece_texture);
     piece_sprite.setPosition(pixel_coords.first, pixel_coords.second);
     m_window.draw(piece_sprite);
 };
 
-void ChessRender::draw_chess(const std::vector<PieceInfo>& piece_info_list)
+void ChessRender::draw_chess(const std::vector<PieceInfo>& piece_info_list, const BoardPixelMapper& board_pixel_mapper)
     /*
     This function draws the chess game.
     */
@@ -104,7 +104,7 @@ void ChessRender::draw_chess(const std::vector<PieceInfo>& piece_info_list)
     m_window.clear();
     draw_board();
     for (const PieceInfo& piece_info : piece_info_list) {
-        draw_piece(piece_info);
+        draw_piece(piece_info, board_pixel_mapper);
     }
     m_window.display();
 };
