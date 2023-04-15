@@ -23,7 +23,7 @@ std::pair<int,int> ChessControler::check_mouse_click(sf::Event::MouseButtonEvent
     }
 };
 
-void ChessControler::handle_clicks(sf::Event event, std::vector<PieceInfo> &pieces)
+void ChessControler::handle_clicks(sf::Event event, const  std::vector<PieceInfo> &pieces)
 {
     /*
     This function is used to handle the clicks.
@@ -92,7 +92,6 @@ void  ChessControler::handle_events(sf::Event event, std::vector<PieceInfo> &pie
             //return std::make_tuple("close",std::pair<int,int>(0,0));
         case sf::Event::MouseButtonPressed:
             handle_clicks(event, pieces);
-            //return std::make_tuple("click",check_mouse_click(event.mouseButton));
         case sf::Event::MouseButtonReleased:
             //return std::make_tuple("release",check_mouse_button_released(event.mouseButton));
         case sf::Event::MouseMoved:
@@ -100,7 +99,7 @@ void  ChessControler::handle_events(sf::Event event, std::vector<PieceInfo> &pie
         }
     }
 
-int ChessControler::check_click_on_piece(std::pair<int,int> mouse_position, std::vector<PieceInfo> &pieces)
+int ChessControler::check_click_on_piece(std::pair<int,int> mouse_position,const std::vector<PieceInfo> &pieces)
 {
     /*
     This function is used to check if the mouse has been clicked on a piece.
@@ -120,3 +119,4 @@ int ChessControler::check_click_on_piece(std::pair<int,int> mouse_position, std:
     }
     return -1;
 }
+
