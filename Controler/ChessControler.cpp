@@ -23,6 +23,21 @@ std::pair<int,int> ChessControler::check_mouse_click(sf::Event::MouseButtonEvent
     }
 };
 
+void ChessControler::handle_clicks(sf::Event event, std::vector<PieceInfo> &pieces)
+{
+    /*
+    This function is used to handle the clicks.
+    */
+    std::pair<int,int> coords;
+    int index;
+    coords = check_mouse_click(event.mouseButton);
+    index = check_click_on_piece(coords, pieces);
+    if (index != -1)
+    {
+        m_selected_piece_index = index;
+    }
+};
+
 std::pair<int,int> ChessControler::check_mouse_button_released(sf::Event::MouseButtonEvent mouse_event)
 {
     /*
@@ -76,7 +91,7 @@ void  ChessControler::handle_events(sf::Event event, std::vector<PieceInfo> &pie
             //do something to close the window, maybe pass the window this method?
             //return std::make_tuple("close",std::pair<int,int>(0,0));
         case sf::Event::MouseButtonPressed:
-            check_mouse_click(event.mouseButton);
+            handle_clicks(event, pieces);
             //return std::make_tuple("click",check_mouse_click(event.mouseButton));
         case sf::Event::MouseButtonReleased:
             //return std::make_tuple("release",check_mouse_button_released(event.mouseButton));
