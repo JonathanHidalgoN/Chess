@@ -60,26 +60,27 @@ std::pair<int,int> ChessControler::follow_mouse(sf::Event::MouseMoveEvent mouse_
     return mouse_position;
 }
 
-std::tuple<std::string,std::pair<int,int>> ChessControler::handle_events(sf::Event event)
+std::tuple<std::string,std::pair<int,int>> ChessControler::handle_events(sf::Event event, std::vector<PieceInfo> &pieces)
     {
         /*
         This function handles the events.
+        Arguments:
+            event: the event
+        Returns:
+            event_type: the type of the event
+            mouse_position: the position of the mouse
         */
         switch (event.type)
         {
         case sf::Event::Closed:
             //do something to close the window, maybe pass the window this method?
             return std::make_tuple("close",std::pair<int,int>(0,0));
-            break;
         case sf::Event::MouseButtonPressed:
             check_mouse_click(event.mouseButton);
             return std::make_tuple("click",check_mouse_click(event.mouseButton));
-            break;
         case sf::Event::MouseButtonReleased:
             return std::make_tuple("release",check_mouse_button_released(event.mouseButton));
-            break;
         case sf::Event::MouseMoved:
             return std::make_tuple("move",follow_mouse(event.mouseMove));
-            break;
         }
     }
