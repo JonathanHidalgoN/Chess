@@ -75,5 +75,11 @@ std::tuple<std::string,std::pair<int,int>> ChessControler::handle_events(sf::Eve
             check_mouse_click(event.mouseButton);
             return std::make_tuple("click",check_mouse_click(event.mouseButton));
             break;
+        case sf::Event::MouseButtonReleased:
+            return std::make_tuple("release",check_mouse_button_released(event.mouseButton));
+            break;
+        case sf::Event::MouseMoved:
+            return std::make_tuple("move",follow_mouse(event.mouseMove));
+            break;
         }
     }
