@@ -23,6 +23,27 @@ std::pair<int,int> ChessControler::check_mouse_click(sf::Event::MouseButtonEvent
     }
 };
 
+std::pair<int,int> ChessControler::check_mouse_button_released(sf::Event::MouseButtonEvent mouse_event)
+{
+    /*
+    This function is used to check if the mouse has been released.
+    If the mouse has been released, the function returns the position of the mouse.
+    Arguments:
+        mouse_event: the mouse event
+    Returns:
+        mouse_position: the position of the mouse
+    */
+    if(mouse_event.button == sf::Mouse::Left)
+    {
+        std::pair<int,int> mouse_position;
+        mouse_position.first = mouse_event.x;
+        mouse_position.second = mouse_event.y;
+        return mouse_position;
+    }
+    //Maybe this is not the best way to do it
+    return std::pair<int,int>(-1,-1);
+};
+
 std::tuple<std::string,std::pair<int,int>> ChessControler::handle_events(sf::Event event)
     {
         /*
