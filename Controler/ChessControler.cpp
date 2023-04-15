@@ -44,6 +44,22 @@ std::pair<int,int> ChessControler::check_mouse_button_released(sf::Event::MouseB
     return std::pair<int,int>(-1,-1);
 };
 
+std::pair<int,int> ChessControler::follow_mouse(sf::Event::MouseMoveEvent mouse_event)
+{
+    /*
+    This function is used to follow the mouse.
+    If the mouse has been moved, the function returns the position of the mouse.
+    Arguments:
+        mouse_event: the mouse event
+    Returns:
+        mouse_position: the position of the mouse
+    */
+    std::pair<int,int> mouse_position;
+    mouse_position.first = mouse_event.x;
+    mouse_position.second = mouse_event.y;
+    return mouse_position;
+}
+
 std::tuple<std::string,std::pair<int,int>> ChessControler::handle_events(sf::Event event)
     {
         /*
