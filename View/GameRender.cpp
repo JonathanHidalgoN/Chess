@@ -5,7 +5,7 @@ ChessRender::ChessRender(
     const unsigned int height,
     const std::string title,
     const unsigned int frame_rate
-) : m_board_size(width, height), m_board_pixel_mapper(width, height, width, height)  
+) : m_board_size(width, height)  
 {
     config_window(width, height, title, frame_rate);    
 };
@@ -89,6 +89,7 @@ void ChessRender::draw_piece(const PieceInfo& piece_info)
     if(!piece_texture.loadFromFile(piece_file_name)) {
         //std::cout << "Error loading piece texture" << std::endl;
     }
+    //Need to fix this.
     std::pair<unsigned int, unsigned int> pixel_coords = m_board_pixel_mapper.transform_square_coords_to_pixel(piece_info.position);
     piece_sprite.setTexture(piece_texture);
     piece_sprite.setPosition(pixel_coords.first, pixel_coords.second);
@@ -116,22 +117,19 @@ bool ChessRender::is_open() const
     return m_window.isOpen();
 };
 
-bool ChessRender::render_game(sf::Event event, const std::vector<PieceInfo>& piece_info_list)
+std::pair<int,int> ChessRender::get_window_dims() const
     /*
-    This function renders the game.
-    Arguments:
-        event: The event that is passed to the window.
-    Returns:
-        Whether the window is open.
+    This function returns the dimensions of the window.
     */
 {
-        while (m_window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                m_window.close();
-                return false;
-            }
-        }
-        draw_chess(piece_info_list);
-        return true;
-    
+    return m_board_size;
+};
+
+std::pair<int,int> ChessRender::get_board_dims() const
+    /*
+    This function returns the dimensions of the square.
+    */
+{
+    //For now board size is the same as window size.
+    return m_board_size;
 };
