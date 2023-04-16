@@ -1,4 +1,4 @@
-#include"GamerRender.h"
+#include"GameRender.h"
 
 ChessRender::ChessRender(
     const unsigned int width,
