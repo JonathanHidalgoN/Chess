@@ -20,12 +20,14 @@ g++ -c Model/Pieces/RookPiece.cpp -o build/RookPiece.o
 g++ -c Model/Setup/SetUpPieces.cpp -o build/SetUpPieces.o
 g++ -c View/BoardPixelMapper.cpp -o build/BoardPixelMapper.o
 g++ -c View/GameRender.cpp -o build/GameRender.o
+g++ -c Controler/ChessControler.cpp -o build/ChessControler.o
 
 # link the object files and create the executable
 g++ build/main.o build/ChessModel.o build/MovesStacker.o build/MovesValidator.o \
 build/BishopPiece.o build/HorsePiece.o build/KingPiece.o build/PawnPiece.o build/Piece.o \
 build/QueenPiece.o build/RookPiece.o build/SetUpPieces.o build/BoardPixelMapper.o \
-build/GameRender.o -lsfml-graphics -lsfml-window -lsfml-system -o build/chess_game
+build/GameRender.o build/ChessControler.o -lsfml-graphics -lsfml-window -lsfml-system \
+-o build/chess_game
 
 # run the game
 ./build/chess_game
