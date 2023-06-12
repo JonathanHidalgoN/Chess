@@ -1,15 +1,23 @@
 # Chess in C++
-This is a chess game written in C++ as my final proyect for object oriented programming.
+
+This is a chess game implemented in C++ as my final project for object-oriented programming. The project follows the Model-View-Controller (MVC) pattern for its structure and organization.
 ## Classes.
+In accordance with the MVC pattern, I structured the project as follows:
+- ChessControler : This class is responsible for managing the game logic and providing an abstract representation of the game.
+- ChessRender :  It handles the display of the chess game for the user.
+- ChessContoler This class manages the interaction between the user and the game.
+Each class has distinct methods that interact with the Piece class and communicate with one another using the PieceInfo structure.
 
-- Board : Displays the board.
-- Piece : Control how pieces are displayed.
-- Validator : Verify and show valid moves for each piece.
-- ChessGame : Manages the game and check for events.
+Screenshot of class diagram:
 
-Each class has a different role, a brief description of each one.
- -> Board : This is a simple class, it only needs a window to display a classic chess board, it do not control how pieces moves.
- -> Piece : This class display the pieces and control how they look in the window, it also checks for dimension of the board to scale pieces, contains relevant info like coords, color, alive status and name.
- -> Validator : This class is really important, when a piece is selected this class computes possible moves for that piece and show the possible moves on the board.
- -> Chess game: This class use all above classes and implement them in different methods, also manage events like a click on a piece or when a piece eat another.
+
+![Screenshot from 2023-06-12 11-35-41](https://github.com/JonathanHidalgoN/Chess/assets/56855593/ebdcebe8-3346-414a-9899-34228c5f1a58)
+
+Here we can see the game in the first turn:
+
+ ![Screenshot from 2023-06-12 11-31-57](https://github.com/JonathanHidalgoN/Chess/assets/56855593/dbe72def-d51a-43b5-bbaa-04ccd3133280)
  
+ And how pieces can be move.
+ 
+![Screenshot from 2023-06-12 11-32-58](https://github.com/JonathanHidalgoN/Chess/assets/56855593/73664aaf-e988-444c-9ed7-97dafbe7011a)
+
